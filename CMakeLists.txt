@@ -73,11 +73,13 @@ include(GNUInstallDirs)
 install(TARGETS ssh_sync
     EXPORT ssh_syncTargets
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    COMPONENT Application
 )
 
 # Optional: Install the env.example
 install(FILES env.example
     DESTINATION ${CMAKE_INSTALL_DATADIR}/ssh_sync
+    COMPONENT Documentation
 )
 
 # --- Custom Generators (Original Code) ---
@@ -92,12 +94,26 @@ file(GENERATE OUTPUT "${CMAKE_BINARY_DIR}/libs.txt"
      CONTENT "$<TARGET_PROPERTY:ssh_sync,LINK_LIBRARIES>")
 
 # --- CPack Configuration ---
-set(CPACK_GENERATOR "DragNDrop")
+set(CPACK_GENERATOR "productbuild")
 set(CPACK_PACKAGE_NAME "ssh_sync")
 set(CPACK_PACKAGE_VERSION "1.1.0")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "SSH Folder Sync CLI Tool")
 set(CPACK_PACKAGE_VENDOR "ZHENG Robert")
 set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-macOS")
-set(CPACK_DMG_VOLUME_NAME "SSH Sync Installer")
+
+# macOS productbuild requires explicit component enabling
+set(CPACK_COMPONENTS_GROUPING "ALL_COMPONENTS_IN_ONE")
+set(CPACK_COMPONENTS_ALL "Application;Documentation")
 
 include(CPack)
+
+cpack_add_component(Application
+    DISPLAY_NAME "SSH Sync CLI Executable"
+    DESCRIPTION "The main command-line executable"
+    REQUIRED
+)
+
+cpack_add_component(Documentation
+    DISPLAY_NAME "Example Configuration"
+    DESCRIPTION "Example .env file"
+)

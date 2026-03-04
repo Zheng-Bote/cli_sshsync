@@ -64,9 +64,8 @@ mkdir build && cd build
 cmake ..
 make
 ```
-
-### Packaging (macOS DMG)
-To create a native macOS Drag-and-Drop installer (`.dmg`), run:
+### Packaging (macOS Installer / PKG)
+To create a native macOS `.pkg` installer that automatically installs the executable and files to standard system paths (`/usr/local/...`), run:
 ```bash
 make package
 ```
