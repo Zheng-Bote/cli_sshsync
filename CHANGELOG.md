@@ -3,8 +3,10 @@
 **Table of Contents**
 
 - [Changelog](#changelog)
-  - [[1.0.0] - 2026-03-04](#100---2026-03-04)
+  - [[1.1.0] - 2026-03-04](#110---2026-03-04)
     - [Added](#added)
+  - [[1.0.0] - 2026-03-04](#100---2026-03-04)
+    - [Added](#added-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

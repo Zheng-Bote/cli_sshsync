@@ -1,3 +1,27 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [SSH Folder Sync Architecture](#ssh-folder-sync-architecture)
+  - [1. Bounded Contexts](#1-bounded-contexts)
+  - [2. Class Diagram](#2-class-diagram)
+  - [3. Sequence Diagram](#3-sequence-diagram)
+  - [4. Activity Diagram](#4-activity-diagram)
+  - [5. State Diagram](#5-state-diagram)
+  - [6. Component Diagram](#6-component-diagram)
+  - [7. Deployment Diagram](#7-deployment-diagram)
+  - [8. Use Case Diagram](#8-use-case-diagram)
+  - [9. Entity Relationship Diagram](#9-entity-relationship-diagram)
+  - [10. Flowchart](#10-flowchart)
+  - [11. Functional Decomposition Diagram](#11-functional-decomposition-diagram)
+  - [12. Information Flow Diagram](#12-information-flow-diagram)
+  - [13. Logical Decomposition Diagram](#13-logical-decomposition-diagram)
+  - [14. Physical Decomposition Diagram](#14-physical-decomposition-diagram)
+  - [15. Development View](#15-development-view)
+  - [16. Deployment View](#16-deployment-view)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # SSH Folder Sync Architecture
 
 This document provides a comprehensive structural and behavioral overview of the SSH Folder Sync application (`v1.1.0`) utilizing Mermaid diagrams required by `GEMINI.md`.
