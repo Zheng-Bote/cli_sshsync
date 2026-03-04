@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-03-04
+
+### Added
+- **Project Restructuring:** Organized source files into `src/` and headers into `include/`.
+- **Public-Key Authentication:** Automatic SSH agent and keyfile authentication (`USER_<name>_KEYFILE` in `.env`) before password fallback.
+- **Dry-Run Mode (`--dry-run`):** Simulation mode to preview sync operations without altering remote files.
+- **Exclude Filter (`--exclude`):** Ignore files/folders containing specific substrings during sync.
+- **Smart Sync (Delta Copy):** Skips uploading files that are already up-to-date using size and modification time checks.
+- **Multithreaded SFTP Uploads (`--threads`):** Drastically speeds up transfers by uploading files concurrently using a thread pool.
+
 ## [1.0.0] - 2026-03-04
 
 ### Added

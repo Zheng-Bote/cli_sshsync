@@ -76,8 +76,11 @@ make
 
 ### Optional Arguments:
 * `--srcbase <string>`: An optional path segment filter. The app will sync the entire folder structure *starting from* this segment and append it to the remote target directory. (e.g. `--srcbase Documents`).
-* `--env <path>`: Path to the `.env` file containing passwords and target paths. (Default: `./.env` in current working directory).
-* `--log <path>`: Path to the log file. (Default: `./<YYYY-MM-DD>.log` in the current working directory).
+* `--env <path>`: Path to the `.env` file containing passwords, keys, and target paths. (Default: `./.env`).
+* `--log <path>`: Path to the log file. (Default: `./<YYYY-MM-DD>.log`).
+* `--dry-run`: Simulate the sync without actually creating directories or uploading files.
+* `--exclude <strings>`: Comma-separated list of substrings. Files or directories containing these are skipped.
+* `--threads <N>`: Number of concurrent threads for parallel SFTP uploads (Default: 1).
 
 ### Notes
 * The app will create the target directory on the remote server if it doesn't exist.
@@ -97,6 +100,10 @@ LOG_LEVEL=info
 # Format: USER_<username>_PASSWORD=...
 USER_admin_PASSWORD=my_secure_password
 USER_deploy_PASSWORD=another_password
+
+# Optional User SSH Private Key
+# Format: USER_<username>_KEYFILE=...
+USER_admin_KEYFILE=/home/user/.ssh/id_ed25519
 
 # Host Target Directories
 # Format: HOST_<hostname>_TARGETDIR=...

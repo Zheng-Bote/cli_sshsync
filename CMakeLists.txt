@@ -1,6 +1,28 @@
-cmake_minimum_required(VERSION 3.23)
-project(ssh_copy_app VERSION 1.0.0 LANGUAGES CXX)
+# SPDX-FileComment: CMake Build configuration for SSH Folder Sync
+# SPDX-FileType: SOURCE
+# SPDX-FileContributor: ZHENG Robert
+# SPDX-FileCopyrightText: 2026 ZHENG Robert
+# SPDX-License-Identifier: MIT
+#
+# @file CMakeLists.txt
+# @brief CMake build configuration for SSH Folder Sync project.
+# @version 1.1.0
+# @date 2026-03-04
+#
+# @author ZHENG Robert (robert@hase-zheng.net)
+# @copyright Copyright (c) 2026 ZHENG Robert
+#
+# @license MIT License
 
+cmake_minimum_required(VERSION 3.23)
+project(ssh_copy_app
+    VERSION 1.1.0
+    DESCRIPTION "SSH Folder Sync"
+    HOMEPAGE_URL "https://github.com/Zheng-Bote/cli_sshsync"
+    LANGUAGES CXX
+)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -36,7 +58,7 @@ add_executable(ssh_sync
 )
 
 # Include directories
-target_include_directories(ssh_sync PRIVATE src)
+target_include_directories(ssh_sync PRIVATE include)
 
 # Link Libraries
 target_link_libraries(ssh_sync PRIVATE 
@@ -44,3 +66,27 @@ target_link_libraries(ssh_sync PRIVATE
     cxxopts::cxxopts
     ssh
 )
+
+# --- Install Configuration ---
+include(GNUInstallDirs)
+
+install(TARGETS ssh_sync
+    EXPORT ssh_syncTargets
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
+
+# Optional: Install the .env.example
+install(FILES .env.example
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/ssh_sync
+)
+
+# --- Custom Generators (Original Code) ---
+
+# CMake File API Query (Datei erzeugen)
+set(QUERY_DIR "${CMAKE_BINARY_DIR}/.cmake/api/v1/query/client-project")
+file(MAKE_DIRECTORY "${QUERY_DIR}")
+file(WRITE "${QUERY_DIR}/codemodel-v2" "") 
+
+# libs.txt Generierung (Timing-sicher via GENERATE)
+file(GENERATE OUTPUT "${CMAKE_BINARY_DIR}/libs.txt" 
+     CONTENT "$<TARGET_PROPERTY:ssh_sync,LINK_LIBRARIES>")

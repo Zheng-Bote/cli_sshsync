@@ -1,3 +1,20 @@
+/**
+ * SPDX-FileComment: Main entry point for the SSH Folder Sync application
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
+ * @file main.cpp
+ * @brief Main entry point for the SSH Folder Sync application.
+ * @version 1.1.0
+ * @date 2026-03-04
+ *
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
+ */
 #include <iostream>
 #include <string>
 #include <filesystem>
@@ -16,6 +33,9 @@ int main(int argc, char* argv[]) {
         ("u,user", "SSH Username", cxxopts::value<std::string>())
         ("t,target", "Target Hostname/IP", cxxopts::value<std::string>())
         ("s,src", "Local Source Folder", cxxopts::value<std::string>())
+        ("dry-run", "Simulate the sync without actually creating directories or uploading files", cxxopts::value<bool>()->default_value("false"))
+        ("exclude", "Comma-separated list of strings. Skipped if local path contains any filter", cxxopts::value<std::vector<std::string>>())
+        ("threads", "Number of concurrent threads for parallel SFTP uploads (default: 1)", cxxopts::value<int>()->default_value("1"))
         ("h,help", "Print usage");
 
     auto result = options.parse(argc, argv);
@@ -80,8 +100,10 @@ int main(int argc, char* argv[]) {
     }
 
     auto opt_password = env_parser.getPassword(username);
-    if (!opt_password) {
-        spdlog::error("No password found for username '{}' in .env file (looked for USER_{}_PASSWORD).", username, username);
+    auto opt_keyfile = env_parser.getPrivateKeyFile(username);
+    
+    if (!opt_password && !opt_keyfile) {
+        spdlog::error("No password or keyfile found for username '{}' in .env file.", username);
         return 1;
     }
 
@@ -91,19 +113,36 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    std::string password = *opt_password;
+    std::string password = opt_password ? *opt_password : "";
+    std::string keyfile = opt_keyfile ? *opt_keyfile : "";
     std::string remote_target_dir = *opt_target_dir;
+    
+    bool dry_run = result["dry-run"].as<bool>();
+    std::vector<std::string> exclude_filters;
+    if (result.count("exclude")) {
+        exclude_filters = result["exclude"].as<std::vector<std::string>>();
+        spdlog::info("Loaded {} exclude filters.", exclude_filters.size());
+    }
+    
+    int num_threads = result["threads"].as<int>();
+    if (num_threads < 1) {
+        num_threads = 1;
+    }
+
+    if (dry_run) {
+        spdlog::warn("--- DRY-RUN MODE ENABLED - No changes will be made to remote server ---");
+    }
 
     spdlog::info("Resolved target directory from .env: {}", remote_target_dir);
 
     // Initialize and Execute SSH Client
-    SshClient client(target_host, username, password);
+    SshClient client(target_host, username, password, keyfile);
     if (!client.connect()) {
         spdlog::error("Failed to establish SSH/SFTP connection.");
         return 1;
     }
 
-    if (!client.copyFolderRecursively(source_folder, remote_target_dir, srcbase)) {
+    if (!client.copyFolderRecursively(source_folder, remote_target_dir, srcbase, dry_run, exclude_filters, num_threads)) {
         spdlog::error("Folder copy failed.");
         client.disconnect();
         return 1;

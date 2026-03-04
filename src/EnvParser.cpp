@@ -1,3 +1,20 @@
+/**
+ * SPDX-FileComment: Implementation of EnvParser configuration handling
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
+ * @file EnvParser.cpp
+ * @brief Implementation for EnvParser.
+ * @version 1.1.0
+ * @date 2026-03-04
+ *
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
+ */
 #include "EnvParser.hpp"
 #include "Logger.hpp"
 #include <fstream>
@@ -49,6 +66,15 @@ bool EnvParser::load() {
 
 std::optional<std::string> EnvParser::getPassword(const std::string& username) const {
     std::string key = "USER_" + username + "_PASSWORD";
+    auto it = env_map_.find(key);
+    if (it != env_map_.end()) {
+        return it->second;
+    }
+    return std::nullopt;
+}
+
+std::optional<std::string> EnvParser::getPrivateKeyFile(const std::string& username) const {
+    std::string key = "USER_" + username + "_KEYFILE";
     auto it = env_map_.find(key);
     if (it != env_map_.end()) {
         return it->second;

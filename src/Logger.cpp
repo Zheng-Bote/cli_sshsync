@@ -1,3 +1,20 @@
+/**
+ * SPDX-FileComment: Implementation of Logger handling
+ * SPDX-FileType: SOURCE
+ * SPDX-FileContributor: ZHENG Robert
+ * SPDX-FileCopyrightText: 2026 ZHENG Robert
+ * SPDX-License-Identifier: MIT
+ *
+ * @file Logger.cpp
+ * @brief Implementation for Logger.
+ * @version 1.1.0
+ * @date 2026-03-04
+ *
+ * @author ZHENG Robert (robert@hase-zheng.net)
+ * @copyright Copyright (c) 2026 ZHENG Robert
+ *
+ * @license MIT License
+ */
 #include "Logger.hpp"
 #include <chrono>
 #include <iomanip>
