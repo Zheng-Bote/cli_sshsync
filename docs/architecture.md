@@ -1,3 +1,9 @@
+# SSH Folder Sync Architecture
+
+This document provides a comprehensive structural and behavioral overview of the SSH Folder Sync application (`v1.1.0`) utilizing Mermaid diagrams required by `GEMINI.md`.
+
+---
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
@@ -19,33 +25,6 @@
   - [14. Physical Decomposition Diagram](#14-physical-decomposition-diagram)
   - [15. Development View](#15-development-view)
   - [16. Deployment View](#16-deployment-view)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# SSH Folder Sync Architecture
-
-This document provides a comprehensive structural and behavioral overview of the SSH Folder Sync application (`v1.1.0`) utilizing Mermaid diagrams required by `GEMINI.md`.
-
----
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [Prerequisites](#prerequisites)
-  - [1. C++ Compiler](#1-c-compiler)
-  - [2. Install `libssh`](#2-install-libssh)
-- [Building the Project](#building-the-project)
-- [Usage](#usage)
-  - [Required Arguments:](#required-arguments)
-  - [Optional Arguments:](#optional-arguments)
-  - [Notes](#notes)
-- [The `.env` File Format](#the-env-file-format)
-- [Example](#example)
-- [📜 License](#-license)
-- [📄 Changelog](#-changelog)
-- [Author](#author)
-- [Code Contributors](#code-contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
