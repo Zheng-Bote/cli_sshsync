@@ -23,7 +23,7 @@ A C++23 command-line application that recursively copies a local folder to a rem
 - [Usage](#usage)
   - [Required Arguments:](#required-arguments)
   - [Optional Arguments:](#optional-arguments)
-- [Notes](#notes)
+  - [Notes](#notes)
 - [The `.env` File Format](#the-env-file-format)
 - [Example](#example)
 - [📜 License](#-license)
