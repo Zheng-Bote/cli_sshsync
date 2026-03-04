@@ -63,7 +63,7 @@ make
 * `--env <path>`: Path to the `.env` file containing passwords and target paths. (Default: `./.env` in current working directory).
 * `--log <path>`: Path to the log file. (Default: `./<YYYY-MM-DD>.log` in the current working directory).
 
-## Notes
+### Notes
 * The app will create the target directory on the remote server if it doesn't exist.
 * The app will create the log file on the local machine if it doesn't exist.
 
