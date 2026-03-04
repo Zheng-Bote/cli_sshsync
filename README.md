@@ -19,6 +19,7 @@ A C++23 command-line application that recursively copies a local folder to a rem
   - [1. C++ Compiler](#1-c-compiler)
   - [2. Install `libssh`](#2-install-libssh)
 - [Building the Project](#building-the-project)
+  - [Packaging (macOS DMG)](#packaging-macos-dmg)
 - [Usage](#usage)
   - [Required Arguments:](#required-arguments)
   - [Optional Arguments:](#optional-arguments)
