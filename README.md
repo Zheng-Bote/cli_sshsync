@@ -14,6 +14,22 @@ A C++23 command-line application that recursively copies a local folder to a rem
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [Prerequisites](#prerequisites)
+  - [1. C++ Compiler](#1-c-compiler)
+  - [2. Install `libssh`](#2-install-libssh)
+- [Building the Project](#building-the-project)
+- [Usage](#usage)
+  - [Required Arguments:](#required-arguments)
+  - [Optional Arguments:](#optional-arguments)
+- [Notes](#notes)
+- [The `.env` File Format](#the-env-file-format)
+- [Example](#example)
+- [📜 License](#-license)
+- [📄 Changelog](#-changelog)
+- [Author](#author)
+- [Code Contributors](#code-contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
