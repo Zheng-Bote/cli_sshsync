@@ -22,7 +22,7 @@
   - [1. C++ Compiler](#1-c-compiler)
   - [2. Install `libssh`](#2-install-libssh)
 - [Building the Project](#building-the-project)
-  - [Packaging (macOS DMG)](#packaging-macos-dmg)
+  - [Packaging (macOS Installer / PKG)](#packaging-macos-installer--pkg)
 - [Usage](#usage)
   - [Required Arguments:](#required-arguments)
   - [Optional Arguments:](#optional-arguments)
