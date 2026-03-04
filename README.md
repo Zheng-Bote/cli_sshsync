@@ -3,8 +3,7 @@
 A C++23 command-line application that recursively copies a local folder to a remote server using SFTP via SSH.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![C++23](https://img.shields.io/badge/C%2B%2B-23-blue.svg)]()
-[![CMake](https://img.shields.io/badge/CMake-3.23+-blue.svg)]()
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS-lightgrey.svg)
 
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/cli_sshsync?logo=GitHub)](https://github.com/Zheng-Bote/cli_sshsync/releases)
 
@@ -37,6 +36,9 @@ A C++23 command-line application that recursively copies a local folder to a rem
 
 ## Prerequisites
 
+[![C++23](https://img.shields.io/badge/C%2B%2B-23-blue.svg)]()
+[![CMake](https://img.shields.io/badge/CMake-3.23+-blue.svg)]()
+
 ### 1. C++ Compiler
 You need a C++ compiler that supports C++23 (e.g., modern GCC, Clang, or MSVC) and CMake 3.20+.
 
@@ -61,6 +63,12 @@ sudo apt-get install libssh-dev
 mkdir build && cd build
 cmake ..
 make
+```
+
+### Packaging (macOS DMG)
+To create a native macOS Drag-and-Drop installer (`.dmg`), run:
+```bash
+make package
 ```
 
 ## Usage

@@ -75,8 +75,8 @@ install(TARGETS ssh_sync
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-# Optional: Install the .env.example
-install(FILES .env.example
+# Optional: Install the env.example
+install(FILES env.example
     DESTINATION ${CMAKE_INSTALL_DATADIR}/ssh_sync
 )
 
@@ -90,3 +90,14 @@ file(WRITE "${QUERY_DIR}/codemodel-v2" "")
 # libs.txt Generierung (Timing-sicher via GENERATE)
 file(GENERATE OUTPUT "${CMAKE_BINARY_DIR}/libs.txt" 
      CONTENT "$<TARGET_PROPERTY:ssh_sync,LINK_LIBRARIES>")
+
+# --- CPack Configuration ---
+set(CPACK_GENERATOR "DragNDrop")
+set(CPACK_PACKAGE_NAME "ssh_sync")
+set(CPACK_PACKAGE_VERSION "1.1.0")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "SSH Folder Sync CLI Tool")
+set(CPACK_PACKAGE_VENDOR "ZHENG Robert")
+set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-macOS")
+set(CPACK_DMG_VOLUME_NAME "SSH Sync Installer")
+
+include(CPack)
