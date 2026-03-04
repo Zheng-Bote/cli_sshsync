@@ -1,6 +1,6 @@
 # SSH Folder Sync Architecture
 
-This document provides a comprehensive structural and behavioral overview of the SSH Folder Sync application (`v1.1.0`) utilizing Mermaid diagrams required by `GEMINI.md`.
+This document provides a comprehensive structural and behavioral overview of the SSH Folder Sync application (`v1.1.0`) utilizing Mermaid diagrams.
 
 ---
 
