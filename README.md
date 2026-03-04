@@ -1,6 +1,7 @@
-# SSH Folder Sync 
+<div id="top" align="center">
+<h1>SSH Folder Sync</h1>
 
-A C++23 command-line application that recursively copies a local folder to a remote server using SFTP via SSH.
+<p>A C++23 command-line application that recursively copies a local folder to a remote server using SFTP via SSH.</p>
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS-lightgrey.svg)
@@ -8,6 +9,8 @@ A C++23 command-line application that recursively copies a local folder to a rem
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/cli_sshsync?logo=GitHub)](https://github.com/Zheng-Bote/cli_sshsync/releases)
 
 [Report Issue](https://github.com/Zheng-Bote/cli_sshsync/issues) · [Request Feature](https://github.com/Zheng-Bote/cli_sshsync/pulls)
+
+</div>
 
 ---
 
