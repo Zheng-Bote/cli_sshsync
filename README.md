@@ -6,9 +6,9 @@ A C++23 command-line application that recursively copies a local folder to a rem
 [![C++23](https://img.shields.io/badge/C%2B%2B-23-blue.svg)]()
 [![CMake](https://img.shields.io/badge/CMake-3.23+-blue.svg)]()
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/depdiscover?logo=GitHub)](https://github.com/Zheng-Bote/depdiscover/releases)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/cli_sshsync?logo=GitHub)](https://github.com/Zheng-Bote/cli_sshsync/releases)
 
-[Report Issue](https://github.com/Zheng-Bote/depdiscover/issues) · [Request Feature](https://github.com/Zheng-Bote/depdiscover/pulls)
+[Report Issue](https://github.com/Zheng-Bote/cli_sshsync/issues) · [Request Feature](https://github.com/Zheng-Bote/cli_sshsync/pulls)
 
 ---
 
@@ -130,7 +130,7 @@ For a detailed history of changes, see the [CHANGELOG.md](CHANGELOG.md).
 
 ## Code Contributors
 
-![Contributors](https://img.shields.io/github/contributors/Zheng-Bote/depdiscover?color=dark-green)
+![Contributors](https://img.shields.io/github/contributors/Zheng-Bote/cli_sshsync?color=dark-green)
 
 ---
 
